@@ -1,4 +1,4 @@
-## simple-images-to-pdf
+## Simple Images-to-PDF
 
 
 ### Requires Python 3.4+
