@@ -26,7 +26,7 @@ Name of PDF file (without file extension): test
 
 Path to folder containing .jpg images (Ex: "C:\images"): C:\test-images
 
-test.pdf is created! And located in C:\test-images
+test.pdf created! And located in C:\test-images
 
 Quiting..
 ```
