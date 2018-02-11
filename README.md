@@ -14,6 +14,8 @@ Dependencies:
 
 Creates a single PDF file from multiple images. I wrote this to aid people who need to create PDFs from scanned-in files.
 
+Currently only works with JPG files but code is written to be highly extensible.
+
 A typical run looks like this:
 
 ```
