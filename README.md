@@ -12,7 +12,9 @@ Dependencies:
 
 ## Features
 
-Creates a single PDF file from multiple images. I wrote this to aid people who need to create PDFs from scanned-in files.
+Creates a single PDF file from multiple images.
+
+The initial use case was for a computer illerate user who was scanning contracts.
 
 Currently searches for JPG files only but the script is well commented and highly extensible.
 
