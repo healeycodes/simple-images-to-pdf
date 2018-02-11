@@ -30,6 +30,9 @@ def intFromString(string):
             final += str(int(i))
         except:
             pass
+    # if no numbers were found..
+    if (final == ''):
+        final = '1'
     return int(final) 
 
 print("Simple Images-to-PDF")
@@ -38,7 +41,7 @@ print()
 
 pdfFileName = input("Name of PDF file (without file extension): ")
 print()
-folderLoc = input("Path to folder containing .jpg images (Ex: \"C:/images\"): ")
+folderLoc = input("Path to folder containing .jpg images (Ex: \"C:\images\"): ")
 
 listImages = list()
 for p in pathlib.Path(folderLoc).iterdir():
