@@ -33,8 +33,6 @@ Quiting..
 
 The pages in the PDF output are sorted by the numbers in the source images' filenames.
 
-`listImages = sorted(listImages, key=lambda fileName: intFromString(fileName))`
-
 `intFromString()` reduces filename strings down to just integers, e.g., `"image of boat 12"` becomes `12`
 
 If there are no integers in the filenames, the page order is random.
