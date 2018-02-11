@@ -3,8 +3,23 @@ from PIL import Image
 from fpdf import FPDF
 import re
 
-# https://stackoverflow.com/questions/27327513/create-pdf-from-a-list-of-images (with edits by me)
+# collect any numbers from a given string and return them concatinated as an int
+def intFromString(string):
+    string = str(string)
+    final = ''
+    for i in string:
+        try:
+            final += str(int(i))
+        except:
+            pass
+    # if no numbers were found..
+    if (final == ''):
+        final = '1'
+    return int(final) 
+
 # creates a pdf from a list of image file paths
+# some source code taken from:
+# https://stackoverflow.com/questions/27327513/create-pdf-from-a-list-of-images
 def makePdf(pdfFileName, listPages, saveTo, dir = ''):
     if (dir):
         dir += "/"
@@ -20,21 +35,6 @@ def makePdf(pdfFileName, listPages, saveTo, dir = ''):
 
     pdf.output(saveTo + "/" + pdfFileName + ".pdf", "F")
 
-# https://stackoverflow.com/questions/3426108/how-to-sort-a-list-numerically (with edits by me)
-# collect any numbers from a given string and return them concatinated as an int
-def intFromString(string):
-    string = str(string)
-    final = ''
-    for i in string:
-        try:
-            final += str(int(i))
-        except:
-            pass
-    # if no numbers were found..
-    if (final == ''):
-        final = '1'
-    return int(final) 
-
 print("Simple Images-to-PDF")
 print("- Andrew Healey 2018")
 print()
@@ -45,7 +45,7 @@ folderLoc = input("Path to folder containing .jpg images (Ex: \"C:\images\"): ")
 
 listImages = list()
 for p in pathlib.Path(folderLoc).iterdir():
-    # if the file extension is jpg
+    # change "jpg" for different file types
     if (str(p).split(".")[len(str(p).split(".")) - 1] == "jpg"):
         listImages.append(p)
 
@@ -54,6 +54,6 @@ listImages = sorted(listImages, key=lambda fileName: intFromString(fileName))
 makePdf(pdfFileName, listImages, folderLoc)
 
 print()
-print(pdfFileName + ".pdf is located in " + folderLoc)
+print(pdfFileName + ".pdf created! And located in " + folderLoc)
 print()
 input("Quiting..")
