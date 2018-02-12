@@ -49,6 +49,8 @@ for p in pathlib.Path(folderLoc).iterdir():
     if (str(p).split(".")[len(str(p).split(".")) - 1] == "jpg"):
         listImages.append(p)
 
+# sort images by any numbers in their filename (concatenated not added)
+# if no numbers are found, the page order is random
 listImages = sorted(listImages, key=lambda fileName: intFromString(fileName))
 
 makePdf(pdfFileName, listImages, folderLoc)
