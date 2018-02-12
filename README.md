@@ -1,4 +1,4 @@
-## simple-images-to-pdf
+## Simple Images-to-PDF
 
 
 ### Requires Python 3.4+
@@ -12,7 +12,9 @@ Dependencies:
 
 ## Features
 
-Creates a single PDF file from multiple images. I wrote this to aid people who need to create PDFs from scanned-in files.
+Creates a single PDF file from multiple images.
+
+The initial use case was for a computer illerate user who was scanning contracts.
 
 Currently searches for JPG files only but the script is well commented and highly extensible.
 
@@ -26,14 +28,12 @@ Name of PDF file (without file extension): test
 
 Path to folder containing .jpg images (Ex: "C:\images"): C:\test-images
 
-test.pdf is located in C:\test-images
+test.pdf created! And located in C:\test-images
 
 Quiting..
 ```
 
 The pages in the PDF output are sorted by the numbers in the source images' filenames.
-
-`listImages = sorted(listImages, key=lambda fileName: intFromString(fileName))`
 
 `intFromString()` reduces filename strings down to just integers, e.g., `"image of boat 12"` becomes `12`
 
