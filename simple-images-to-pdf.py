@@ -3,6 +3,12 @@ from PIL import Image
 from fpdf import FPDF
 import re
 
+# check if a full file path is pointed to a image file
+def imageCheck(path):
+    imageTypes = ['jpg', 'jpeg', 'png', 'gif', 'tiff']
+    endOfPath = str(path).split(".")[len(str(path).split(".")) - 1]
+    return endOfPath in imageTypes
+
 # collect any numbers from a given string and return them concatinated as an int
 def intFromString(string):
     string = str(string)
@@ -43,13 +49,19 @@ pdfFileName = input("Name of new PDF file: ")
 print()
 saveLoc = input("Path to save location: ")
 print()
-folderLoc = input("Path to folder containing .jpg images (Ex: \"C:\images\"): ")
+folderLoc = input("Path to folder containing images (Ex: \"C:\images\"): ")
 
 listImages = list()
 for p in pathlib.Path(folderLoc).iterdir():
-    # change "jpg" for different file types
-    if (str(p).split(".")[len(str(p).split(".")) - 1] == "jpg"):
+    # grab all image files
+    if (imageCheck(p)):
         listImages.append(p)
+
+if (len(listImages) == 0):
+    raise Exception('No image files found') 
+
+for image in listImages:
+    print(str(image))
 
 # sort images by any numbers in their filename (concatenated not added)
 # if no numbers are found, the page order is random
@@ -58,6 +70,6 @@ listImages = sorted(listImages, key=lambda fileName: intFromString(fileName))
 makePdf(pdfFileName, listImages, saveLoc)
 
 print()
-print(pdfFileName + ".pdf created! And located in " + saveLoc)
+print(pdfFileName + ".pdf created in in " + saveLoc)
 print()
 input("Quiting..")
