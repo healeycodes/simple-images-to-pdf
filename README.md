@@ -1,8 +1,8 @@
 ## Simple Images-to-PDF
 
 
-### Requires Python 3.4+
-### Works with PyInstaller
+### Requires Python
+#### Works with PyInstaller
 
 Dependencies:
 
@@ -24,17 +24,19 @@ A typical run looks like this:
 Simple Images-to-PDF
 - Andrew Healey 2018
 
-Name of PDF file (without file extension): test
+Name of new PDF file: test
 
-Path to folder containing .jpg images (Ex: "C:\images"): C:\test-images
+Path to save location: C:/test-images
 
-test.pdf created! And located in C:\test-images
+Path to folder containing images (Ex: "C:/images"): C:/test-images
+
+test.pdf created in C:/test-images
 
 Quiting..
 ```
 
-The pages in the PDF output are sorted by the numbers in the source images' filenames.
+The pages in the PDF output are sorted by the numbers in the source images' filenames, e.g., Image01 then Image02
 
 `intFromString()` reduces filename strings down to just integers, e.g., `"image of boat 12"` becomes `12`
 
-If there are no integers in the filenames, the page order is random.
+If there aren't any numbers in the filenames, the page order is random.
