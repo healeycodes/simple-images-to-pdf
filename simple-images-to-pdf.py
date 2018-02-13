@@ -49,7 +49,7 @@ pdfFileName = input("Name of new PDF file: ")
 print()
 saveLoc = input("Path to save location: ")
 print()
-folderLoc = input("Path to folder containing images (Ex: \"C:\images\"): ")
+folderLoc = input("Path to folder containing images (Ex: \"C:/images\"): ")
 
 listImages = list()
 for p in pathlib.Path(folderLoc).iterdir():
@@ -59,9 +59,6 @@ for p in pathlib.Path(folderLoc).iterdir():
 
 if (len(listImages) == 0):
     raise Exception('No image files found') 
-
-for image in listImages:
-    print(str(image))
 
 # sort images by any numbers in their filename (concatenated not added)
 # if no numbers are found, the page order is random
