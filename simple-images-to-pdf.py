@@ -39,7 +39,9 @@ print("Simple Images-to-PDF")
 print("- Andrew Healey 2018")
 print()
 
-pdfFileName = input("Name of PDF file (without file extension): ")
+pdfFileName = input("Name of new PDF file: ")
+print()
+saveLoc = input("Path to save location: ")
 print()
 folderLoc = input("Path to folder containing .jpg images (Ex: \"C:\images\"): ")
 
@@ -53,9 +55,9 @@ for p in pathlib.Path(folderLoc).iterdir():
 # if no numbers are found, the page order is random
 listImages = sorted(listImages, key=lambda fileName: intFromString(fileName))
 
-makePdf(pdfFileName, listImages, folderLoc)
+makePdf(pdfFileName, listImages, saveLoc)
 
 print()
-print(pdfFileName + ".pdf created! And located in " + folderLoc)
+print(pdfFileName + ".pdf created! And located in " + saveLoc)
 print()
 input("Quiting..")
