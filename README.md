@@ -28,7 +28,7 @@ Name of new PDF file: test
 
 Path to save location: C:/test-images
 
-Path to folder containing images (Ex: \"C:/images/"): C:/test-images
+Path to folder containing images (Ex: "C:/images"): C:/test-images
 
 test.pdf created in C:/test-images
 
