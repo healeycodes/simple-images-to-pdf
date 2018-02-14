@@ -16,8 +16,6 @@ Creates a single PDF file from multiple images.
 
 The initial use case was for a computer illerate user who was scanning contracts.
 
-Currently searches for JPG files only but the script is well commented and highly extensible.
-
 A typical run looks like this:
 
 ```
@@ -35,8 +33,4 @@ test.pdf created in C:/test-images
 Quiting..
 ```
 
-The pages in the PDF output are sorted by the numbers in the source images' filenames, e.g., Image01 then Image02
-
-`intFromString()` reduces filename strings down to just integers, e.g., `"image of boat 12"` becomes `12`
-
-If there aren't any numbers in the filenames, the page order is random.
+The pages in the PDF output are sorted by the numbers in the image filenames. For example, `"Image01"` comes before `"Image02"`. To be more specific, the filenames are iterated over to see which characters can be converted to integers. These integers are then concatenated and ran through `sort()`.
