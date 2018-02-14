@@ -1,18 +1,14 @@
 ## Simple Images-to-PDF
 
-
-### Requires Python
-#### Works with PyInstaller
-
 Dependencies:
-
-`$ pip install Pillow`
-
-`$ pip install fpdf`
+```
+$ pip install Pillow
+$ pip install fpdf
+```
 
 ## Features
 
-Creates a single PDF file from multiple images.
+A Python script to create a single PDF file from multiple images.
 
 The initial use case was for a computer illerate user who was scanning contracts.
 
