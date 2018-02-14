@@ -19,9 +19,6 @@ The initial use case was for a computer illerate user who was scanning contracts
 A typical run looks like this:
 
 ```
-Simple Images-to-PDF
-- Andrew Healey 2018
-
 Name of new PDF file: test
 
 Path to save location: C:/test-images
