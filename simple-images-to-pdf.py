@@ -41,10 +41,7 @@ def makePdf(pdfFileName, listPages, saveTo, dir = ''):
 
     pdf.output(saveTo + "/" + pdfFileName + ".pdf", "F")
 
-print("Simple Images-to-PDF")
-print("- Andrew Healey 2018")
 print()
-
 pdfFileName = input("Name of new PDF file: ")
 print()
 saveLoc = input("Path to save location: ")
