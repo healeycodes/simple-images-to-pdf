@@ -3,11 +3,13 @@ from PIL import Image
 from fpdf import FPDF
 import re
 
+
 # check if a full file path is pointed to a image file
 def image_check(path):
     image_types = ['jpg', 'jpeg', 'png', 'gif', 'tiff']
     end_of_path = str(path).split(".")[len(str(path).split(".")) - 1]
     return end_of_path in image_types
+
 
 # collect any numbers from a given string and return them concatinated as an int
 def int_from_string(string):
@@ -18,12 +20,12 @@ def int_from_string(string):
             final += str(int(i))
         except:
             pass
-    # if no numbers could be found, just return '1'
     if (final == ''):
         final = '1'
     return int(final) 
 
-# creates a pdf from a list of image file paths
+
+# create a PDF file from a list of image file paths
 def make_pdf(pdf_filename, listPages, saveTo, dir = ''):
     if (dir):
         dir += "/"
@@ -39,6 +41,8 @@ def make_pdf(pdf_filename, listPages, saveTo, dir = ''):
 
     pdf.output(saveTo + "/" + pdf_filename + ".pdf", "F")
 
+
+# begin user interaction to eventually create a PDF file
 def create_new_pdf():
     print()
     pdf_filename = input("Name of new PDF file: ")
@@ -56,7 +60,6 @@ def create_new_pdf():
     if (len(list_images) == 0):
         raise Exception('No image files found') 
 
-    # sort images by any numbers in their filename (concatenated not added)
     # if no numbers are found, the page order is random
     list_images = sorted(list_images, key=lambda fileName: int_from_string(fileName))
 
@@ -66,8 +69,8 @@ def create_new_pdf():
     print(pdf_filename + ".pdf created in " + save_location)
     program_loop()
 
-def program_loop():
 
+def program_loop():
     while True:
         print('\nMenu:')
         print('1: Create new PDF file')
@@ -80,6 +83,7 @@ def program_loop():
             break
         else:
             break
+
 
 # start program
 print('Simple Images-to-PDF\n')
