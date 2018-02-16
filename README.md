@@ -2,7 +2,7 @@
 
 ## Features
 
-A Python program to create a single PDF file from multiple images.
+A tiny Python program to create a single PDF file from multiple images.
 
 The initial use case was for a computer illerate user who was scanning contracts.
 
