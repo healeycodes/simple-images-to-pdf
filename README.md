@@ -34,4 +34,4 @@ $ pip install fpdf
 
 #### License
 
-MIT. See LICENSE.md
+MIT.
