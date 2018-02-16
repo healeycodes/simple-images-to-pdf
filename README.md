@@ -22,6 +22,7 @@ Path to folder containing images (Ex: "C:/images"): C:\images\
 test.pdf created in C:\images\
 
 Menu:
+
 [...]
 ```
 
