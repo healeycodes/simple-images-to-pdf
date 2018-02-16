@@ -4,13 +4,13 @@ from fpdf import FPDF
 import re
 
 # check if a full file path is pointed to a image file
-def imageCheck(path):
-    imageTypes = ['jpg', 'jpeg', 'png', 'gif', 'tiff']
-    endOfPath = str(path).split(".")[len(str(path).split(".")) - 1]
-    return endOfPath in imageTypes
+def image_check(path):
+    image_types = ['jpg', 'jpeg', 'png', 'gif', 'tiff']
+    end_of_path = str(path).split(".")[len(str(path).split(".")) - 1]
+    return end_of_path in image_types
 
 # collect any numbers from a given string and return them concatinated as an int
-def intFromString(string):
+def int_from_string(string):
     string = str(string)
     final = ''
     for i in string:
@@ -18,15 +18,13 @@ def intFromString(string):
             final += str(int(i))
         except:
             pass
-    # if no numbers were found..
+    # if no numbers could be found, just return '1'
     if (final == ''):
         final = '1'
     return int(final) 
 
 # creates a pdf from a list of image file paths
-# some source code taken from:
-# https://stackoverflow.com/questions/27327513/create-pdf-from-a-list-of-images
-def makePdf(pdfFileName, listPages, saveTo, dir = ''):
+def make_pdf(pdf_filename, listPages, saveTo, dir = ''):
     if (dir):
         dir += "/"
 
@@ -39,31 +37,50 @@ def makePdf(pdfFileName, listPages, saveTo, dir = ''):
         pdf.add_page()
         pdf.image(dir + str(page), 0, 0)
 
-    pdf.output(saveTo + "/" + pdfFileName + ".pdf", "F")
+    pdf.output(saveTo + "/" + pdf_filename + ".pdf", "F")
 
-print()
-pdfFileName = input("Name of new PDF file: ")
-print()
-saveLoc = input("Path to save location: ")
-print()
-folderLoc = input("Path to folder containing images (Ex: \"C:/images\"): ")
+def create_new_pdf():
+    print()
+    pdf_filename = input("Name of new PDF file: ")
+    print()
+    save_location = input("Path to save location: ")
+    print()
+    folder_location = input("Path to folder containing images (Ex: \"C:/images\"): ")
 
-listImages = list()
-for p in pathlib.Path(folderLoc).iterdir():
-    # grab all image files
-    if (imageCheck(p)):
-        listImages.append(p)
+    list_images = list()
+    for p in pathlib.Path(folder_location).iterdir():
+        # grab all image files
+        if (image_check(p)):
+            list_images.append(p)
 
-if (len(listImages) == 0):
-    raise Exception('No image files found') 
+    if (len(list_images) == 0):
+        raise Exception('No image files found') 
 
-# sort images by any numbers in their filename (concatenated not added)
-# if no numbers are found, the page order is random
-listImages = sorted(listImages, key=lambda fileName: intFromString(fileName))
+    # sort images by any numbers in their filename (concatenated not added)
+    # if no numbers are found, the page order is random
+    list_images = sorted(list_images, key=lambda fileName: int_from_string(fileName))
 
-makePdf(pdfFileName, listImages, saveLoc)
+    make_pdf(pdf_filename, list_images, save_location)
 
-print()
-print(pdfFileName + ".pdf created in in " + saveLoc)
-print()
-input("Quiting..")
+    print()
+    print(pdf_filename + ".pdf created in " + save_location)
+    program_loop()
+
+def program_loop():
+
+    while True:
+        print('\nMenu:')
+        print('1: Create new PDF file')
+        print('2: Quit\n')
+        user_input = input('>> ')
+
+        if(user_input == '1'):
+            create_new_pdf()
+        if(user_input == '2'):
+            break
+        else:
+            break
+
+# start program
+print('Simple Images-to-PDF\n')
+program_loop()
