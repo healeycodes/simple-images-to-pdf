@@ -2,7 +2,7 @@
 
 A tiny Python program to create a single PDF file from multiple images.
 
-Designed for a computer-illerate user who was losing time while scanning contracts and converted them to PDF.
+Designed for a computer-illerate user who was losing time while scanning contracts and converting them to PDF.
 
 ```
 Menu:
