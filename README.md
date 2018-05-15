@@ -13,11 +13,11 @@ Menu:
 
 Name of new PDF file: test
 
-Path to save location: C:\files\
+Path to save location: C:/files/
 
-Path to folder containing images (Ex: "C:/images"): C:\images\
+Path to folder containing images (Ex: "C:/images"): C:/images/
 
-test.pdf created in C:\images\
+test.pdf created in C:/images/
 ```
 
 The pages in the PDF output are sorted by the numbers in the image filenames. For example, `"Image01"` comes before `"Image02"`. To be more specific, the filenames are iterated over to see which characters can be converted to integers. These integers are then concatenated and ran through `sort()`.
