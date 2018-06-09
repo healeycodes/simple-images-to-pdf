@@ -22,11 +22,7 @@ test.pdf created in C:/images/
 
 The pages in the PDF output are sorted by the numbers in the image filenames. For example, `"Image01"` comes before `"Image02"`. To be more specific, the filenames are iterated over to see which characters can be converted to integers. These integers are then concatenated and ran through `sort()`.
 
-E.g.,
-
-"01foobar0" -> 010
-"onetwo3seven" -> 3
-"1.1" -> 11
+For example, `"01foobar0" becomes "010"`, `"onetwo3seven" becomes "3"`, `"1.1" becomes "11"`
 
 #### Dependencies:
 ```
