@@ -1,6 +1,6 @@
 ### Simple Images-to-PDF
 
-A tiny Python program to create a single PDF file from multiple images.
+A tiny Python program to create a single PDF file from multiple images. (You're welcome, Mum).
 
 Designed for a computer-illerate user who was losing time while scanning contracts and converting them to PDF.
 
