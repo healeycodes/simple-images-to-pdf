@@ -30,6 +30,11 @@ $ pip install Pillow
 $ pip install fpdf
 ```
 
+#### Run
+```
+python simple-images-to-pdf.py
+```
+
 #### License
 
 MIT.
